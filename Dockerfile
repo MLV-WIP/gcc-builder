@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     gcc-14 \
     g++-14 \
+    libstdc++-14-dev \
     make \
     cmake \
     \
