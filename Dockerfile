@@ -34,8 +34,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pkg-config \
     ca-certificates \
     \
-    # Cleanup
-    && rm -rf /var/lib/apt/lists/*
+    # Cleanup apt indexes and package caches in this layer
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean \
+    && rm -rf /var/cache/apt/archives/*
 
 # Create symlinks for default gcc/g++ versions
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-16 100 && \
