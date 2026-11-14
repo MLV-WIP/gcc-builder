@@ -1,13 +1,14 @@
 # gcc-builder
 
-A lightweight Docker container for building C/C++ projects with GCC 14, CMake, and testing frameworks.
+A lightweight Docker container for building C/C++ projects with GCC 16, CMake, and testing frameworks.
 
 ## Features
 
-- **Base Image**: Ubuntu 24.04 (minimal footprint)
-- **Compiler**: GCC 14 with C++ support
+- **Base Image**: Ubuntu 26.04 LTS (Resolute Raccoon)
+- **Compiler**: GCC 16 with C++ support
 - **Build Tools**: GNU Make, CMake
 - **Testing**: Google Test (gtest) and Google Mock (gmock)
+- **Sanitizers**: Explicit GCC shared runtimes for ASan, TSan, UBSan, and LSan (MSan is LLVM-only; modern TSan ASLR handling in GCC 15+)
 - **Utilities**: Git, curl, wget, pkg-config
 
 ## Quick Start
@@ -32,12 +33,13 @@ docker run --rm -v $(pwd):/workspace ghcr.io/MLV-WIP/gcc-builder:latest bash -c 
 
 ## Included Tools and Versions
 
-- **GCC**: 14.x
-- **CMake**: Latest from Ubuntu 24.04
-- **Google Test**: Latest from debian packages
-- **Google Mock**: Latest from debian packages
-- **GNU Make**: Latest from Ubuntu 24.04
-- **Git**: Latest from Ubuntu 24.04
+- **GCC**: 16.x
+- **libstdc++**: 16-dev
+- **CMake**: From Ubuntu 26.04
+- **Google Test**: From Ubuntu packages
+- **Google Mock**: From Ubuntu packages
+- **GNU Make**: From Ubuntu 26.04
+- **Git**: From Ubuntu 26.04
 
 ## Environment
 
